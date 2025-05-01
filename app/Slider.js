@@ -3,7 +3,8 @@ import React from 'react'
 
 function Slider(props) {
   return (
-<div className='bg-gray-300 flex items-center flex-col gap-20 mt-0 md:mt-5 md:flex-row md:gap-50 w-full md:w-[90%] p-15 md:mx-20'>
+<div className="bg-gray-300 w-full md:w-[90%] mx-auto flex flex-col md:flex-row gap-10 justify-center px-5 md:px-10 py-10 mt-10">
+
 
 <div className='col-1 w-full md:w-1/2'> 
     
