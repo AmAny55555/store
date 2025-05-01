@@ -18,7 +18,7 @@ function Page() {
           <div key={order.id || idx} className="my-4 py-4 px-4 border-t border-gray-400">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-sm capitalize">
               
-              {/* Left side: item info */}
+          
               <div className="flex items-start gap-4 w-full md:w-1/2">
                 <div className="text-red-500 bg-red-100 p-2 rounded-full">
                   <i className="fa-solid fa-gift"></i>
@@ -29,12 +29,12 @@ function Page() {
                 </div>
               </div>
 
-              {/* Price */}
+       
               <div className="text-sm text-gray-700 font-semibold">
                 ${parseFloat(order.items[0]?.price).toFixed(2)}
               </div>
 
-              {/* Order details */}
+            
               <div className="text-sm text-gray-600 flex flex-col gap-1">
                 <p>Method: {order.method}</p>
                 <p>Date: {order.date}</p>

@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [orders, setOrders] = useState([]);
 
-  // ✅ تحميل البيانات من localStorage مع التأمين
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const storedCart = localStorage.getItem('cart');
@@ -36,17 +36,17 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // ✅ حفظ cart عند التحديث
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  // ✅ حفظ orders عند التحديث
+
   useEffect(() => {
     localStorage.setItem('orders', JSON.stringify(orders));
   }, [orders]);
 
-  // ✅ تأكيد الطلب
+
   const placeOrder = () => {
     if (cart.length === 0) return;
 
@@ -64,7 +64,7 @@ export const CartProvider = ({ children }) => {
     localStorage.removeItem('cart');
   };
 
-  // ✅ إضافة منتج للسلة
+
   const addToCart = (product) => {
     setCart((prevCart) => {
       const item = prevCart.find((item) => item.id === product.id);
@@ -80,12 +80,12 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // ✅ حذف منتج من السلة
+
   const removeFromCart = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  // ✅ تحديث السلة بالكامل
+
   const updateCart = (updatedCart) => {
     setCart(updatedCart);
   };

@@ -2,21 +2,21 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
-import { CartContext } from '@/app/Context/CartContext'; // تأكد من الاستيراد الصحيح
+import { CartContext } from '@/app/Context/CartContext'; 
 
 function ProductDetail() {
-  const { user } = useUser(); // الحصول على حالة المستخدم
-  const { addToCart } = useContext(CartContext); // استخدام useContext للوصول إلى دالة addToCart
+  const { user } = useUser(); 
+  const { addToCart } = useContext(CartContext); 
   const router = useRouter();
   const params = useParams();
   const { id } = params;
 
-  // حالة المنتج وحالة التحميل
+
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
 
-  // جلب بيانات المنتج عند تغيير الـ id
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -28,7 +28,7 @@ function ProductDetail() {
         setProduct(data);
         setLoading(false);
       } catch (err) {
-        setErr(err.message); // تعيين الرسالة في حالة الخطأ
+        setErr(err.message); 
         setLoading(false);
       }
     };
@@ -36,17 +36,17 @@ function ProductDetail() {
     fetchProduct();
   }, [id]);
 
-  // دالة التعامل مع شراء المنتج الآن
+
   const handleBuyNow = () => {
     if (!user) {
       alert('Please login to buy this product');
     } else {
-      addToCart(product); // إضافة المنتج للسلة
-      router.push('/Cart'); // التوجه إلى صفحة السلة
+      addToCart(product); 
+      router.push('/Cart'); 
     }
   };
 
-  // حالة عرض البيانات
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -59,7 +59,7 @@ function ProductDetail() {
     <div className="p-10">
       {product && (
         <div className="sm:flex sm:flex-col sm:items-center sm:text-center sm:gap-5 md:grid md:grid-cols-2 md:justify-items-center pt-10 px-5">
-          {/* الصورة */}
+   
           <div className="w-full flex justify-center mb-5 md:mb-0">
             <img
               src={product.image}
@@ -70,7 +70,7 @@ function ProductDetail() {
             />
           </div>
 
-          {/* التفاصيل */}
+
           <div className="w-full flex flex-col items-center text-center md:items-start md:text-left">
             <h1 className="font-semibold pb-2 capitalize sm:text-lg lg:text-xl">{product.title}</h1>
 

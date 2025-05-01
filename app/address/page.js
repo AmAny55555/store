@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 function Page() {
-  // حالة لتخزين بيانات العنوان
+ 
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -13,7 +13,7 @@ function Page() {
     state: ''
   });
 
-  // دالة للتعامل مع التغييرات في المدخلات
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,12 +22,11 @@ function Page() {
     });
   };
 
-  // دالة لمعالجة إرسال النموذج
+ 
   const submit = (e) => {
     e.preventDefault();
-    // هنا يمكنك إرسال البيانات إلى الخادم أو حفظها في سياق أو ما شابه.
-    console.log(formData); // يمكن هنا عرض البيانات في الـ console للتحقق منها
-    // يمكنك هنا إضافة أي إجراء آخر مثل توجيه المستخدم لصفحة أخرى أو إعلامه بتأكيد الحفظ.
+  
+    console.log(formData);  
   };
 
   return (
@@ -60,7 +59,7 @@ function Page() {
               placeholder='Pin code'
               name='pinCode'
               className='outline-0 border border-gray-500 p-1 rounded-md w-1/2'
-              value={formData.pinCode} // ربط القيمة مع formData
+              value={formData.pinCode} 
               onChange={handleInputChange}
             />
             <input
@@ -68,7 +67,7 @@ function Page() {
               placeholder='Address (area and street)'
               name='address'
               className='outline-0 border border-gray-500 p-1 rounded-md w-1/2'
-              value={formData.address} // ربط القيمة مع formData
+              value={formData.address} 
               onChange={handleInputChange}
             />
 
@@ -78,7 +77,7 @@ function Page() {
                 placeholder='City/District/Town'
                 name='city'
                 className='outline-0 border border-gray-500 p-1 rounded-md w-1/2'
-                value={formData.city} // ربط القيمة مع formData
+                value={formData.city} 
                 onChange={handleInputChange}
               />
               <input
@@ -86,7 +85,7 @@ function Page() {
                 placeholder='State'
                 name='state'
                 className='outline-0 border border-gray-500 p-1 rounded-md w-1/2'
-                value={formData.state} // ربط القيمة مع formData
+                value={formData.state}
                 onChange={handleInputChange}
               />
             </div>

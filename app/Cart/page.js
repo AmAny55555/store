@@ -21,7 +21,7 @@ function Page() {
     router.push('/place');
     setTimeout(() => {
       placeOrder();
-    }, 100); // ممكن تخليها أقل أو أكثر حسب السرعة
+    }, 100); 
   };
 
   const calculateSubtotal = () => {

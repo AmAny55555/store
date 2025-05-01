@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isSignedIn, isLoaded } = useUser(); // أضف isLoaded للتحقق من تحميل حالة المستخدم
+  const { isSignedIn, isLoaded } = useUser();
 
   return (
     <div className="header flex justify-between lg:px-[6%] py-3 items-center border-b border-b-gray-600 relative">
-      {/* Logo */}
+ 
       <div className="logo font-bold capitalize text-2xl">
         <h1>
           <span className="text-orange-700">q</span>uic
@@ -17,7 +17,6 @@ function Header() {
         </h1>
       </div>
 
-      {/* Navigation Links */}
       <div
         className={`links capitalize cursor-pointer
         ${isMenuOpen ? 'flex' : 'hidden'}
@@ -34,7 +33,7 @@ function Header() {
           <li>about us</li>
           <li>contact</li>
 
-          {/* زر Account في الموبايل (لو المستخدم غير مسجل دخول) */}
+       
           {!isSignedIn && isLoaded && (
             <SignInButton mode="modal">
               <button className="lg:hidden cursor-pointer">Account</button>
@@ -43,11 +42,11 @@ function Header() {
         </ul>
       </div>
 
-      {/* Icons & Account */}
+   
       <div className="icone flex gap-4 items-center">
         <i className="fa-solid fa-magnifying-glass"></i>
 
-        {/* User Button */}
+
         {isLoaded ? (
           isSignedIn ? (
             <UserButton
@@ -69,11 +68,11 @@ function Header() {
             </SignInButton>
           )
         ) : (
-          // لو ما زالت حالة المستخدم تتحمّل، ما نعرض شيء (أو تقدر تضيف عنصر loading)
+         
           <div className="w-10 h-10"></div>
         )}
 
-        {/* زر الهامبورجر للموبايل */}
+   
         <div className="text-xl cursor-pointer block lg:hidden" onClick={() => setIsMenuOpen((prev) => !prev)}>
           <i className="fa-solid fa-bars"></i>
         </div>
